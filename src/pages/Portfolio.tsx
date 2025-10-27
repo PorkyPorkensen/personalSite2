@@ -14,7 +14,7 @@ export default function Portfolio(): JSX.Element {
  
  
   return (
-    <div className="min-h-screen pt-24 px-4">
+    <div className="min-h-screen pt-24 px-4 bg-gradient-to-br from-blue-50 to-white">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold  bg-clip-text mb-4 text-center mt-4 md:text-5xl">Featured Projects 💻</h1>
         <p className="text-lg text-gray-600 text-center mb-8">
@@ -22,7 +22,7 @@ export default function Portfolio(): JSX.Element {
         </p>
         <div className=''>
           {projects.map((project: Project) => (
-            <div className="shadow-md md:shadow-none border border-gray-300 rounded-md p-6 mb-6 hover:shadow-lg transition-shadow flex">
+            <div className="shadow-md md:shadow-none bg-white border border-gray-400 rounded-md p-6 mb-6 hover:shadow-lg transition-shadow flex">
               <div key={project.id} className="flex-1 my-auto">
                 {project.url ? (
                   <a href={project.url} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">
