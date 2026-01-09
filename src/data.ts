@@ -13,7 +13,7 @@ export const projects = [
     image: sportPic, // Replace with actual project image
     short: "Web App for Sports enthusiasts to check current NFL games, player stats, news and playoff bracket creation",
     details: "My first venture into AWS and my first Solo PostgreSQL project. A full-stack web app for sports enthusiasts to check current NFL games, player stats, news and playoff bracket creation. Features include live game updates, team statistics, news articles, and a leaderboard for user-generated playoff brackets.",
-    stack: ["AWS", "PostgreSQL", "React", "Node.js", "Express", "Firebase", "CSS", "Python",],
+    stack: ["AWS", "PostgreSQL", "React", "TailwindCSS","Node.js", "Express", "Firebase", "CSS", "Python",],
     url: "https://www.sportsync.cc/",
   },
   {
