@@ -4,8 +4,18 @@ import SSImg from "./images/SS.png";
 import lorImg from "./images/LOR.png";
 import morecoinImg from "./images/mc.png";
 import cqImg from "./images/cq.png";
+import sportPic from "./images/ss1.png";
 
 export const projects = [
+    {
+    id: 0,
+    name: "SportSync",
+    image: sportPic, // Replace with actual project image
+    short: "Web App for Sports enthusiasts to check current NFL games, player stats, news and playoff bracket creation",
+    details: "My first venture into AWS and my first Solo PostgreSQL project. A full-stack web app for sports enthusiasts to check current NFL games, player stats, news and playoff bracket creation. Features include live game updates, team statistics, news articles, and a leaderboard for user-generated playoff brackets.",
+    stack: ["AWS", "PostgreSQL", "React", "Node.js", "Express", "Firebase", "CSS", "Python",],
+    url: "https://www.sportsync.cc/",
+  },
   {
     id: 1,
     name: "TCGTracker",

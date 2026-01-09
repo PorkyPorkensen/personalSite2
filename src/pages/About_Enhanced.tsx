@@ -3,7 +3,7 @@ import selfie2 from '../images/selfie2.png';
 
 export default function About(): JSX.Element {
   const skills = [
-    "JavaScript", "TypeScript", "React", "Node.js", "Express", 
+    "JavaScript", "TypeScript", "React", "Node.js", "AWS", "Express", 
     "CSS", "Tailwind CSS", "HTML", "Google Cloud", "Git", "AWS", "Python"
   ];
 

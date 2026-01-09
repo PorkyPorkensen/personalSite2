@@ -3,12 +3,12 @@ import selfie2 from '../images/selfie2.png';
 
 export default function About(): JSX.Element {
   const skills = [
-    "JavaScript", "TypeScript", "React", "Node.js", "Express", 
-    "CSS", "Tailwind CSS", "HTML", "Git", "Google Cloud", "Python"
+    "JavaScript", "TypeScript", "React", "Node.js", "AWS", "Express", 
+    "CSS", "Tailwind CSS", "HTML", "Google Cloud", "Git", "AWS", "Python"
   ];
 
   const interests = [
-    "🐕 My Dogs", "🎮 Gaming", "🥊 MMA", "🏀 Basketball", "🏈 Football"
+    "🐕 Dogs", "🎮 Gaming", "🥊 MMA", "🏀 Basketball", "🏈 Football"
   ];
 
   return (
@@ -28,7 +28,7 @@ export default function About(): JSX.Element {
               </div>
             </div>
             <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
-              About Myself
+              About Mitchell
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
               Full-Stack Developer passionate about creating impactful web experiences
@@ -74,15 +74,15 @@ export default function About(): JSX.Element {
             ))}
           </div>
           <p className="text-gray-600 mt-4 text-center italic">
-            Currently exploring AWS, AI, and expanding my Python knowledge
+            Currently exploring AI and expanding my Python knowledge
           </p>
         </div>
 
         {/* Interests Section */}
-        <div className="bg-white shadow-xl rounded-2xl p-8 mb-8">
+        <div className="bg-white shadow-xl rounded-2xl p-8">
           <h2 className="text-3xl font-bold text-gray-800 mb-6 flex items-center">
             <span className="text-2xl mr-3">🎯</span>
-            My life outside of coding..
+            When I'm Not Coding
           </h2>
           <div className="flex flex-wrap justify-center gap-4">
             {interests.map((interest, index) => (
