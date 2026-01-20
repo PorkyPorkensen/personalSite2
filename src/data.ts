@@ -4,7 +4,7 @@ import SSImg from "./images/SS.png";
 import lorImg from "./images/LOR.png";
 import morecoinImg from "./images/mc.png";
 import cqImg from "./images/cq.png";
-import sportPic from "./images/ss1.png";
+import sportPic from "./images/SS1.png";
 
 export const projects = [
     {
