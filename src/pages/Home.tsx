@@ -34,7 +34,7 @@ export default function Home(): JSX.Element {
   ];
 
   return (
-    <div className="min-h-screen pt-24 px-4 bg-gradient-to-br from-blue-50 to-white">
+    <div className="min-h-screen pt-24 px-4 bg-cover bg-center bg-fixed bg-no-repeat" style={{ backgroundImage: 'url(/bg2.svg)' }}>
       <div className="max-w-6xl mx-auto">
         
         {/* Hero/Intro Section */}

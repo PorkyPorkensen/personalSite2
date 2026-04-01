@@ -14,35 +14,38 @@ export default function Portfolio(): JSX.Element {
  
  
   return (
-    <div className="min-h-screen pt-24 px-4 bg-gradient-to-br from-blue-50 to-white">
+    <div className="min-h-screen pt-24 px-4 bg-cover bg-center bg-fixed bg-no-repeat" style={{ backgroundImage: 'url(/bg1.svg)' }}>
       <div className="max-w-4xl mx-auto">
+        <div className="bg-white shadow-2xl rounded-2xl p-4 mb-8 text-center border border-gray-300">
         <h1 className="text-4xl font-bold  bg-clip-text mb-4 text-center mt-4 md:text-5xl">Featured Projects 💻</h1>
         <p className="text-lg text-gray-600 text-center mb-8">
           Below are some of the personal projects I've worked on.
         </p>
+        </div>
+
         
         {/* Featured Project */}
         {projects.length > 0 && (
-          <div className="mb-12 shadow-lg bg-white border border-gray-300 rounded-lg p-8 hover:shadow-xl transition-shadow bg-gradient-to-br from-blue-50 to-white">
+          <div className="mb-12 shadow-lg bg-gray-800 opacity-90 border border-gray-700 rounded-lg p-8 hover:shadow-xl transition-shadow">
             {projects[0].url ? (
-              <a href={projects[0].url} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">
-                <h2 className="text-4xl font-bold mb-4 cursor-pointer">{projects[0].name}</h2>
+              <a href={projects[0].url} target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">
+                <h2 className="text-4xl font-bold mb-4 cursor-pointer text-white">{projects[0].name}</h2>
               </a>
             ) : (
-              <h2 className="text-4xl font-bold mb-4">{projects[0].name}</h2>
+              <h2 className="text-4xl font-bold mb-4 text-white">{projects[0].name}</h2>
             )}
             
             <div className="flex flex-col md:flex-row gap-8 mb-6">
               <div className="md:w-2/3">
-                <p className="text-lg text-gray-700 mb-4">{projects[0].short}</p>
-                <p className="text-gray-600 mb-6 leading-relaxed">{projects[0].details}</p>
+                <p className="text-lg text-gray-100 mb-4">{projects[0].short}</p>
+                <p className="text-gray-300 mb-6 leading-relaxed">{projects[0].details}</p>
                 
                 {/* Tech Stack Pills */}
                 <div className="flex flex-wrap gap-2 mb-6">
                   {projects[0].stack.map((tech, index) => (
                     <span 
                       key={index}
-                      className="px-4 py-2 text-sm bg-blue-200 text-blue-900 rounded-full font-medium"
+                      className="px-4 py-2 text-sm bg-blue-500 text-white rounded-full font-medium"
                     >
                       {tech}
                     </span>
@@ -50,7 +53,7 @@ export default function Portfolio(): JSX.Element {
                 </div>
                 
                 {projects[0].url && (
-                  <a href={projects[0].url} target="_blank" rel="noopener noreferrer" className="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors">
+                  <a href={projects[0].url} target="_blank" rel="noopener noreferrer" className="inline-block px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition-colors">
                     View Project →
                   </a>
                 )}
@@ -70,10 +73,9 @@ export default function Portfolio(): JSX.Element {
         )}
 
         {/* Other Projects */}
-        <h3 className="text-2xl font-semibold mb-6">Other Projects</h3>
         <div className=''>
           {projects.slice(1).map((project: Project) => (
-            <div className="shadow-md md:shadow-none bg-white border border-gray-400 rounded-md p-6 mb-6 hover:shadow-lg transition-shadow flex">
+            <div className="shadow-md md:shadow-none bg-white border border-gray-800 rounded-md p-6 mb-6 hover:shadow-lg transition-shadow flex">
               <div key={project.id} className="flex-1 my-auto">
                 {project.url ? (
                   <a href={project.url} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">

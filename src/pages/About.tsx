@@ -12,7 +12,7 @@ export default function About(): JSX.Element {
   ];
 
   return (
-    <div className="min-h-screen pt-24 px-4 bg-gradient-to-br from-blue-50 to-white">
+    <div className="min-h-screen pt-24 px-4 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/bg3.svg)' }}>
       <div className="max-w-4xl mx-auto">
         {/* Hero Section */}
         <div className="bg-white shadow-2xl rounded-2xl p-8 mb-8">
@@ -50,7 +50,7 @@ export default function About(): JSX.Element {
               working directly with customers and delivering prompt, courteous service.
             </p>
             <p>
-              For over 3 years, I have immersed myself in web development through self-guided learning and structured online courses. 
+              For over 4 years, I have immersed myself in web development through self-guided learning and structured online courses. 
               I've completed hundreds of hours of coursework, over 1600 lessons, and a multitude of solo projects as part of Scrimba's "Frontend Career Path". 
               I've also followed numerous YouTube crash courses focusing on the MERN stack.
             </p>
