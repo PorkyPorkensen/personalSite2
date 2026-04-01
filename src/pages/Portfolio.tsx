@@ -38,7 +38,7 @@ export default function Portfolio(): JSX.Element {
             <div className="flex flex-col md:flex-row gap-8 mb-6">
               <div className="md:w-2/3">
                 <p className="text-lg text-gray-100 mb-4">{projects[0].short}</p>
-                <p className="text-gray-300 mb-6 leading-relaxed">{projects[0].details}</p>
+                <p className="text-gray-100 mb-6 leading-relaxed">{projects[0].details}</p>
                 
                 {/* Tech Stack Pills */}
                 <div className="flex flex-wrap gap-2 mb-6">
