@@ -15,7 +15,7 @@ export const projects = [
     short: "Fantasy-themed Chat bot for Dungeons and Dragons players to generate new characters.",
     details: "A fantasy-themed chat bot designed for Dungeons and Dragons players to generate new characters. Features include character attribute creation and rich background storytelling. Users can input character preferences, and the bot will generate a unique, savable character profile complete with attributes, backstory, and potential plot hooks for their D&D campaigns.",
     stack: ["Groq", "NoSQL", "TypeScript", "Vite","Node.js", "Express", "Firebase", "CSS", "LLM",],
-    url: "https://www.sportsync.cc/",
+    url: "https://lantern-keeper-yqzo.vercel.app/",
   },    {
     id: 1,
     name: "SportSync",
