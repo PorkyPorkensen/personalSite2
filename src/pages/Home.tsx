@@ -47,7 +47,7 @@ export default function Home(): JSX.Element {
           </p>
           <p className="text-lg text-gray-500 max-w-4xl mx-auto leading-relaxed">
             I create responsive, user-friendly websites and robust backend solutions using cutting-edge technologies. 
-            With over 3 years of self-guided learning and hands-on project experience, I bring both technical expertise 
+            With over 4 years of self-guided learning and hands-on project experience, I bring both technical expertise 
             and creative problem-solving to every project.
           </p>
         </div>
