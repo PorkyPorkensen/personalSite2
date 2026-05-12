@@ -5,10 +5,19 @@ import lorImg from "./images/LOR.png";
 import morecoinImg from "./images/mc.png";
 import cqImg from "./images/cq.png";
 import sportPic from "./images/ss2.png";
+import lkPic from "./images/LK.png";
 
 export const projects = [
     {
     id: 0,
+    name: "The Lantern Keeper",
+    image: lkPic, // Replace with actual project image
+    short: "Fantasy-themed Chat bot for Dungeons and Dragons players to generate new characters.",
+    details: "A fantasy-themed chat bot designed for Dungeons and Dragons players to generate new characters. Features include character attribute creation and rich background storytelling. Users can input character preferences, and the bot will generate a unique, savable character profile complete with attributes, backstory, and potential plot hooks for their D&D campaigns.",
+    stack: ["Groq", "NoSQL", "TypeScript", "Vite","Node.js", "Express", "Firebase", "CSS", "LLM",],
+    url: "https://www.sportsync.cc/",
+  },    {
+    id: 1,
     name: "SportSync",
     image: sportPic, // Replace with actual project image
     short: "Web App for Sports enthusiasts to check current games, player stats and news from the big 4 sports leagues",
@@ -17,7 +26,7 @@ export const projects = [
     url: "https://www.sportsync.cc/",
   },
   {
-    id: 1,
+    id: 2,
     name: "TCGTracker",
     image: tcgImg, // Replace with actual project image
     short: "Full-stack Web App for Pokémon TCG collectors to get info on cards and manage collections",
@@ -26,7 +35,7 @@ export const projects = [
     url: "https://www.tcgtracker.ca/",
   },
 {
-    id: 2,
+    id: 3,
     name: "BurgerBros Restaurant",
     image: burgerImg, // Replace with actual project image
     short: "Full-stack website for a burger restaurant.",
@@ -35,7 +44,7 @@ export const projects = [
     url: 'https://burgerbros-site.vercel.app/',
   },
   {
-    id: 3,
+    id: 4,
     name: "SOLScanner",
     image: SSImg, // Replace with actual project image
     short: "Wallet Lookup and Memecoin Viewer for the Solana Blockchain",
@@ -45,7 +54,7 @@ export const projects = [
 
   },
   {
-    id: 4,
+    id: 5,
     name: "League of Random",
     image: lorImg, // Replace with actual project image
     short: "Random Champion and Build Generator for League of Legends",
@@ -54,7 +63,7 @@ export const projects = [
     url: 'https://leagueofrandom-dusky.vercel.app/',
   },
   {
-    id: 5,
+    id: 6,
     name: "MoreCoin",
     image: morecoinImg, // Replace with actual project image
     short: "MoreCoin - A Fictional Memecoin Landing Page",
@@ -63,7 +72,7 @@ export const projects = [
     url: 'https://more-coin.vercel.app/', 
   },
     {
-    id: 6,
+    id: 7,
     name: "Crossing Quizzes",
     image: cqImg, // Replace with actual project image
     short: "Crossing Quizzes - A Quiz App for Animal Crossing Fans",
