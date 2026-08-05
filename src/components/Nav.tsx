@@ -1,12 +1,56 @@
 import { useState, type JSX } from 'react'
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import logo from '../images/logo.png'
 
 export default function Nav():JSX.Element {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const shouldReduceMotion = useReducedMotion()
+  const easeOutCubic = [0.22, 1, 0.36, 1] as const
+
+  const menuContainer = {
+    closed: {
+      height: 0,
+      opacity: 0,
+      transition: {
+        duration: shouldReduceMotion ? 0 : 0.2,
+        ease: easeOutCubic
+      }
+    },
+    open: {
+      height: 'auto',
+      opacity: 1,
+      transition: {
+        duration: shouldReduceMotion ? 0 : 0.25,
+        ease: easeOutCubic,
+        staggerChildren: shouldReduceMotion ? 0 : 0.06,
+        delayChildren: shouldReduceMotion ? 0 : 0.04
+      }
+    }
+  }
+
+  const mobileItem = {
+    closed: {
+      opacity: 0,
+      y: shouldReduceMotion ? 0 : -6
+    },
+    open: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: shouldReduceMotion ? 0 : 0.2,
+        ease: easeOutCubic
+      }
+    }
+  }
 
   return (
-    <nav className="fixed border border-transparent shadow-lg py-4 px-8 align-center items-center flex-col top-0 left-0 right-0 z-10 bg-white md:p-4">
+    <motion.nav
+      className="fixed border border-transparent shadow-lg py-4 px-8 align-center items-center flex-col top-0 left-0 right-0 z-10 bg-white md:p-4"
+      initial={{ y: shouldReduceMotion ? 0 : -24, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: shouldReduceMotion ? 0 : 0.35, ease: easeOutCubic }}
+    >
       {/* Mobile Layout */}
       <div className="relative flex items-center justify-between w-full md:hidden">
         {/* Hamburger Menu Button - Only visible on mobile */}
@@ -14,10 +58,23 @@ export default function Nav():JSX.Element {
           className="sm:hidden flex flex-col gap-1 p-2 z-20"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
+          aria-expanded={isMenuOpen}
         >
-          <span className="w-6 h-0.5 bg-black transition-all duration-300"></span>
-          <span className="w-6 h-0.5 bg-black transition-all duration-300"></span>
-          <span className="w-6 h-0.5 bg-black transition-all duration-300"></span>
+          <motion.span
+            className="w-6 h-0.5 bg-black block"
+            animate={isMenuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
+            transition={{ duration: shouldReduceMotion ? 0 : 0.2 }}
+          />
+          <motion.span
+            className="w-6 h-0.5 bg-black block"
+            animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }}
+            transition={{ duration: shouldReduceMotion ? 0 : 0.2 }}
+          />
+          <motion.span
+            className="w-6 h-0.5 bg-black block"
+            animate={isMenuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
+            transition={{ duration: shouldReduceMotion ? 0 : 0.2 }}
+          />
         </button>
 
         {/* Logo - Centered on mobile */}
@@ -58,22 +115,30 @@ export default function Nav():JSX.Element {
       </div>
 
       {/* Mobile Dropdown Menu - Only visible when menu is open */}
-      {isMenuOpen && (
-        <ul className="sm:hidden md:hidden w-full bg-white border-t border-gray-200 pt-4 mt-6">
-          <li>
-            <Link to="/" className="block hover:text-blue-600 cursor-pointer py-2 px-4 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>Home</Link>
-          </li>
-          <li>
-            <Link to="/about" className="block hover:text-blue-600 cursor-pointer py-2 px-4 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>About</Link>
-          </li>
-          <li>
-            <Link to="/portfolio" className="block hover:text-blue-600 cursor-pointer py-2 px-4 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>Portfolio</Link>
-          </li>
-          <li>
-            <Link to="/contact" className="block hover:text-blue-600 cursor-pointer py-2 px-4 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>Contact</Link>
-          </li>
-        </ul>
-      )}
-    </nav>
+      <AnimatePresence initial={false}>
+        {isMenuOpen && (
+          <motion.ul
+            className="sm:hidden md:hidden w-full bg-white border-t border-gray-200 pt-4 mt-6 overflow-hidden"
+            variants={menuContainer}
+            initial="closed"
+            animate="open"
+            exit="closed"
+          >
+            <motion.li variants={mobileItem}>
+              <Link to="/" className="block hover:text-blue-600 cursor-pointer py-2 px-4 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>Home</Link>
+            </motion.li>
+            <motion.li variants={mobileItem}>
+              <Link to="/about" className="block hover:text-blue-600 cursor-pointer py-2 px-4 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>About</Link>
+            </motion.li>
+            <motion.li variants={mobileItem}>
+              <Link to="/portfolio" className="block hover:text-blue-600 cursor-pointer py-2 px-4 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>Portfolio</Link>
+            </motion.li>
+            <motion.li variants={mobileItem}>
+              <Link to="/contact" className="block hover:text-blue-600 cursor-pointer py-2 px-4 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>Contact</Link>
+            </motion.li>
+          </motion.ul>
+        )}
+      </AnimatePresence>
+    </motion.nav>
   )
 }
