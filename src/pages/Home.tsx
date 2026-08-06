@@ -1,41 +1,154 @@
 import { type JSX } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
+import lanternShowcase from "../images/lanternSHOWCASE.png";
+import sportsShowcase from "../images/sportsSHOWCASE.png";
+import solScannerShowcase from "../images/SSSHOWCASE.png";
+import tcgShowcase from "../images/tcgtSHOWCASE.png";
+
+const featuredProjects = [
+  {
+    title: "The Lantern Keeper",
+    label: "Interactive Storytelling AI",
+    description:
+      "A narrative-first app designed around mood, character creation, and immersive roleplay prompts.",
+    stack: ["React", "Node", "Prompt Design"],
+    image: lanternShowcase,
+    glowClass: "home-glow-amber"
+  },
+  {
+    title: "SportSync",
+    label: "Live Scores and League Stats",
+    description:
+      "A polished sports dashboard with mobile-first cards, scheduling data, and a clean browsing flow.",
+    stack: ["TypeScript", "API Integration", "Responsive UI"],
+    image: sportsShowcase,
+    glowClass: "home-glow-blue"
+  },
+  {
+    title: "SolScanner",
+    label: "Solana Wallet Tracker",
+    description:
+      "A neon visual style with on-chain wallet visibility and fast API-backed token value snapshots.",
+    stack: ["Web3", "REST APIs", "Data Visualization"],
+    image: solScannerShowcase,
+    glowClass: "home-glow-cyan"
+  },
+  {
+    title: "TCGTracker",
+    label: "Collection Value Platform",
+    description:
+      "Card collection analytics with eye-catching visuals and value recalculation features across devices.",
+    stack: ["React", "Database", "Authentication"],
+    image: tcgShowcase,
+    glowClass: "home-glow-gold"
+  }
+] as const;
+
+const serviceOffers = [
+  {
+    index: "01",
+    icon: "strategy",
+    title: "Personalized Site Planning",
+    description:
+      "A discovery-first process to define audience, goals, and visual direction before development starts."
+  },
+  {
+    index: "02",
+    icon: "devices",
+    title: "Mobile and Desktop Design",
+    description:
+      "Responsive layouts tuned for phone, tablet, and desktop so your site feels polished on every screen."
+  },
+  {
+    index: "03",
+    icon: "api",
+    title: "API Integration",
+    description:
+      "Clean integration with third-party services and custom endpoints to power dynamic features and data flow."
+  },
+  {
+    index: "04",
+    icon: "seo",
+    title: "Search Optimization",
+    description:
+      "Technical SEO setup with semantic structure, metadata, and performance-focused implementation."
+  },
+  {
+    index: "05",
+    icon: "content",
+    title: "Content Architecture",
+    description:
+      "Thoughtful information structure so your content is easy to scan, understand, and maintain over time."
+  },
+  {
+    index: "06",
+    icon: "performance",
+    title: "Performance and Reliability",
+    description:
+      "Fast loading experiences with optimized assets, efficient rendering, and stable production deployment."
+  }
+] as const;
+
+function ServiceIcon({ kind }: { kind: (typeof serviceOffers)[number]["icon"] }): JSX.Element {
+  if (kind === "strategy") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" className="home-service-icon">
+        <path d="M4 5h16M4 12h10M4 19h7" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+        <circle cx="18" cy="12" r="2.2" fill="none" stroke="currentColor" strokeWidth="1.8" />
+      </svg>
+    );
+  }
+
+  if (kind === "devices") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" className="home-service-icon">
+        <rect x="3.5" y="5" width="12" height="9" rx="1.5" fill="none" stroke="currentColor" strokeWidth="1.8" />
+        <rect x="16.5" y="8" width="4" height="8" rx="1" fill="none" stroke="currentColor" strokeWidth="1.8" />
+        <path d="M8 17h3" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
+  if (kind === "api") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" className="home-service-icon">
+        <path d="M7 8l-3 4 3 4M17 8l3 4-3 4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M14 5l-4 14" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
+  if (kind === "seo") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" className="home-service-icon">
+        <circle cx="10" cy="10" r="5.5" fill="none" stroke="currentColor" strokeWidth="1.8" />
+        <path d="M14.5 14.5L20 20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+        <path d="M8 10h4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
+  if (kind === "content") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" className="home-service-icon">
+        <path d="M7 4h8l4 4v12H7z" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+        <path d="M15 4v4h4M10 12h6M10 16h6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className="home-service-icon">
+      <path d="M12 3l2 3.5 4 .7-2.8 2.8.6 4-3.8-1.9-3.8 1.9.6-4L6 7.2l4-.7z" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+      <path d="M4 20h16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+    </svg>
+  );
+}
 
 export default function Home(): JSX.Element {
   const shouldReduceMotion = useReducedMotion();
   const easeOutCubic = [0.22, 1, 0.36, 1] as const;
-
-  const frontendStack = [
-    "React", "TypeScript", "JavaScript", "HTML5", "CSS3", 
-    "Tailwind CSS", "Responsive Design", "UI/UX Design"
-  ];
-
-  const backendStack = [
-    "Node.js", "Express.js", "REST APIs", "Firebase", 
-    "MongoDB", "Git", "AWS", "Database Design"
-  ];
-
-  const services = [
-    {
-      icon: "🌐",
-      title: "Website Development",
-      description: "Custom responsive websites built with modern technologies and best practices.",
-      features: ["Responsive Design", "Fast Performance", "SEO Optimized", "Modern UI/UX"]
-    },
-    {
-      icon: "🔗",
-      title: "API Integration",
-      description: "Seamless integration with third-party services and custom API development.",
-      features: ["RESTful APIs", "Third-party Services", "Data Processing", "Real-time Updates"]
-    },
-    {
-      icon: "⚙️",
-      title: "Backend Development",
-      description: "Robust server-side solutions with scalable architecture and security.",
-      features: ["Server Architecture", "Database Design", "Authentication", "Cloud Deployment"]
-    }
-  ];
 
   const sectionReveal = {
     hidden: {
@@ -56,200 +169,147 @@ export default function Home(): JSX.Element {
     hidden: {},
     show: {
       transition: {
-        staggerChildren: shouldReduceMotion ? 0 : 0.08,
+        staggerChildren: shouldReduceMotion ? 0 : 0.1,
         delayChildren: shouldReduceMotion ? 0 : 0.08
       }
     }
   };
 
-  const chipReveal = {
-    hidden: {
-      opacity: 0,
-      y: shouldReduceMotion ? 0 : 14,
-      scale: shouldReduceMotion ? 1 : 0.96
-    },
-    show: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: shouldReduceMotion ? 0 : 0.3,
-        ease: easeOutCubic
-      }
-    }
-  };
-
-  const serviceCardReveal = {
-    hidden: {
-      opacity: 0,
-      y: shouldReduceMotion ? 0 : 26
-    },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: shouldReduceMotion ? 0 : 0.45,
-        ease: easeOutCubic
-      }
-    }
-  };
-
   return (
-    <div className="min-h-screen pt-24 pb-16 px-4 bg-cover bg-center bg-fixed bg-no-repeat" style={{ backgroundImage: 'url(/bg2.svg)' }}>
-      <div className="max-w-6xl mx-auto">
-        
-        {/* Hero/Intro Section */}
-        <motion.section
-          className="bg-white shadow-2xl rounded-2xl p-8 mb-8 text-center"
-          variants={staggerContainer}
-          initial="hidden"
-          animate="show"
-        >
-          <motion.h1
-            className="text-6xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-6"
-            variants={sectionReveal}
-          >
-            Hi, I'm Mitchell
-          </motion.h1>
-          <motion.p className="text-2xl text-gray-600 mb-6 max-w-3xl mx-auto leading-relaxed" variants={sectionReveal}>
-            Full-Stack Developer specializing in modern web applications
-          </motion.p>
-          <motion.p className="text-lg text-gray-500 max-w-4xl mx-auto leading-relaxed" variants={sectionReveal}>
-            I create responsive, user-friendly websites and robust backend solutions using cutting-edge technologies. 
-            With over 4 years of self-guided learning and hands-on project experience, I bring both technical expertise 
-            and creative problem solving to every project.
-          </motion.p>
-        </motion.section>
+    <div className="home-shell min-h-screen pt-28 pb-20 px-4 sm:px-6 lg:px-8">
+      <div className="home-noise" aria-hidden="true" />
+      <div className="home-radial" aria-hidden="true" />
 
-        {/* Tech Stacks Section */}
-        <motion.section
-          className="grid md:grid-cols-2 gap-8 mb-8"
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          
-          {/* Frontend Stack */}
-          <motion.div className="bg-white shadow-xl rounded-2xl p-8" variants={sectionReveal}>
-            <motion.h2 className="text-3xl font-bold text-gray-800 mb-6 flex items-center" variants={sectionReveal}>
-              <span className="text-2xl mr-3">🎨</span>
-              Frontend Skills
-            </motion.h2>
-            <motion.div className="grid grid-cols-2 gap-3" variants={staggerContainer}>
-              {frontendStack.map((tech, index) => (
-                <motion.div 
-                  key={index}
-                  className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full text-center font-medium shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200"
-                  variants={chipReveal}
-                  whileHover={shouldReduceMotion ? undefined : { y: -2, scale: 1.04 }}
-                >
-                  {tech}
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
+      <motion.section
+        className="relative z-[1] mx-auto max-w-6xl text-center"
+        variants={staggerContainer}
+        initial="hidden"
+        animate="show"
+      >
+        <motion.p className="home-kicker" variants={sectionReveal}>
+          Mitchell Vieira · Full-Stack Developer
+        </motion.p>
+        <motion.h1 className="home-hero-title" variants={sectionReveal}>
+          Digital projects with a cinematic feel and a product-focused backbone.
+        </motion.h1>
+        <motion.p className="home-hero-copy" variants={sectionReveal}>
+          I design and build responsive applications that look distinct, load fast,
+          and scale with clean architecture. This version of the site leans into a
+          showcase-forward style inspired by your mockups.
+        </motion.p>
 
-          {/* Backend Stack */}
-          <motion.div className="bg-white shadow-xl rounded-2xl p-8" variants={sectionReveal}>
-            <motion.h2 className="text-3xl font-bold text-gray-800 mb-6 flex items-center" variants={sectionReveal}>
-              <span className="text-2xl mr-3">🔧</span>
-              Backend Skills
-            </motion.h2>
-            <motion.div className="grid grid-cols-2 gap-3" variants={staggerContainer}>
-              {backendStack.map((tech, index) => (
-                <motion.div 
-                  key={index}
-                  className="bg-gradient-to-r from-green-500 to-teal-500 text-white px-4 py-2 rounded-full text-center font-medium shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200"
-                  variants={chipReveal}
-                  whileHover={shouldReduceMotion ? undefined : { y: -2, scale: 1.04 }}
-                >
-                  {tech}
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
-        </motion.section>
+        <motion.div className="mt-8 flex flex-wrap items-center justify-center gap-4" variants={sectionReveal}>
+          <Link to="/portfolio" className="home-btn home-btn-primary">
+            Explore My Projects
+          </Link>
+          <Link to="/contact" className="home-btn home-btn-outline">
+            Start A Conversation
+          </Link>
+        </motion.div>
+      </motion.section>
 
-        {/* Services Section */}
-        <motion.section
-          className="bg-white shadow-2xl rounded-2xl p-8 mb-8"
-          variants={sectionReveal}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.18 }}
-        >
-          <motion.h2 className="text-4xl font-bold text-gray-800 mb-8 text-center flex items-center justify-center" variants={sectionReveal}>
-            <span className="text-3xl mr-3">💼</span>
-            Services I Offer
-          </motion.h2>
-          <motion.div className="grid md:grid-cols-3 gap-8" variants={staggerContainer}>
-            {services.map((service, index) => (
-              <motion.article
-                key={index}
-                className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-[background-color,box-shadow] duration-300 hover:bg-gray-100"
-                variants={serviceCardReveal}
-                whileHover={shouldReduceMotion ? undefined : { y: -5 }}
-                transition={{ duration: shouldReduceMotion ? 0 : 0.35, ease: easeOutCubic }}
-              >
-                <motion.div
-                  className="text-4xl mb-4 text-center"
-                  whileHover={shouldReduceMotion ? undefined : { scale: 1.07 }}
-                  transition={{ duration: 0.2, ease: easeOutCubic }}
-                >
-                  {service.icon}
-                </motion.div>
-                <h3 className="text-xl font-bold text-gray-800 mb-3 text-center">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 mb-4 text-center">
-                  {service.description}
-                </p>
-                <ul className="space-y-2">
-                  {service.features.map((feature, featureIndex) => (
-                    <motion.li 
-                      key={featureIndex}
-                      className="text-sm text-gray-500 flex items-center"
-                      variants={chipReveal}
-                    >
-                      <span className="text-blue-500 mr-2">✓</span>
-                      {feature}
-                    </motion.li>
-                  ))}
-                </ul>
-              </motion.article>
-            ))}
-          </motion.div>
-        </motion.section>
+      <motion.section
+        className="relative z-[1] mx-auto mt-14 max-w-6xl"
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.15 }}
+      >
+        <motion.div className="home-section-head" variants={sectionReveal}>
+          <h2 className="home-section-title">Featured Builds</h2>
+        </motion.div>
 
-        {/* Call to Action Section */}
-        <motion.section
-          className="bg-gradient-to-r from-blue-600 to-purple-600 shadow-2xl rounded-2xl p-8 text-center text-white"
-          variants={sectionReveal}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.25 }}
-        >
-          <motion.h2 className="text-3xl font-bold mb-4" variants={sectionReveal}>Ready to Start Your Project?</motion.h2>
-          <motion.p className="text-xl mb-6 opacity-90" variants={sectionReveal}>
-            Let's discuss how I can help bring your ideas to life
-          </motion.p>
-          <motion.div variants={sectionReveal}>
-            <Link 
-            to="/contact"
-            className="inline-block bg-white text-blue-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-200 shadow-lg"
+        <div className="mt-8 space-y-8">
+          {featuredProjects.map((project, index) => (
+            <motion.article
+              key={project.title}
+              variants={sectionReveal}
+              whileHover={shouldReduceMotion ? undefined : { y: -4 }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.25, ease: easeOutCubic }}
+              className="home-project-card"
             >
-              <motion.span
-                className="inline-block"
-                whileHover={shouldReduceMotion ? undefined : { scale: 1.03 }}
-                whileTap={shouldReduceMotion ? undefined : { scale: 0.97 }}
-              >
-                Get In Touch
-              </motion.span>
-            </Link>
-          </motion.div>
-        </motion.section>
-      </div>
+              <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+                <div className="order-2 lg:order-1">
+                  <p className="home-project-label">{project.label}</p>
+                  <h3 className="home-project-title">{project.title}</h3>
+                  <p className="home-project-copy">{project.description}</p>
+
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {project.stack.map((item) => (
+                      <span key={item} className="home-chip">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+
+                  <Link to="/portfolio" className="home-inline-link mt-6 inline-block">
+                    View Build Details
+                  </Link>
+                </div>
+
+                <div className={`order-1 lg:order-2 home-image-wrap ${project.glowClass}`}>
+                  <img
+                    src={project.image}
+                    alt={`${project.title} on laptop and mobile`}
+                    className="home-showcase-image"
+                    loading={index > 1 ? "lazy" : "eager"}
+                  />
+                </div>
+              </div>
+            </motion.article>
+          ))}
+        </div>
+      </motion.section>
+
+      <motion.section
+        className="relative z-[1] mx-auto mt-14 max-w-6xl"
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <motion.div className="home-section-head" variants={sectionReveal}>
+          <h2 className="home-section-title">What You Get</h2>
+          <p className="home-section-copy">Standard features I build into modern websites.</p>
+        </motion.div>
+
+        <div className="home-services-grid mt-8">
+          {serviceOffers.map((service) => (
+            <motion.article
+              key={service.title}
+              variants={sectionReveal}
+              whileHover={shouldReduceMotion ? undefined : { y: -3 }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.24, ease: easeOutCubic }}
+              className="home-service-card"
+            >
+              <div className="home-service-icon-wrap">
+                <ServiceIcon kind={service.icon} />
+              </div>
+              <p className="home-service-index">{service.index}</p>
+              <h3 className="home-service-title">{service.title}</h3>
+              <p className="home-service-copy">{service.description}</p>
+            </motion.article>
+          ))}
+        </div>
+      </motion.section>
+
+      <motion.section
+        className="relative z-[1] mx-auto mt-14 max-w-6xl"
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <motion.div className="home-capstone" variants={sectionReveal}>
+          <h2 className="home-capstone-title">Want your project to feel like a launch, not just a deploy?</h2>
+          <p className="home-capstone-copy">
+            I can help shape the UX, engineering flow, and visual personality from first wireframe to shipped product.
+          </p>
+          <Link to="/contact" className="home-btn home-btn-primary mt-6 inline-block">
+            Contact Me
+          </Link>
+        </motion.div>
+      </motion.section>
     </div>
   );
 }
