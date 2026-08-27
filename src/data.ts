@@ -8,8 +8,17 @@ import sportPic from "./images/ss2.png";
 import lkPic from "./images/LK.png";
 
 export const projects = [
-    {
+  {
     id: 0,
+    name: "TCGTracker",
+    image: tcgImg, // Replace with actual project image
+    short: "Full-stack Web App for Pokémon TCG collectors to get info on cards and manage collections",
+    details: "A full-stack website for Pokémon TCG collectors to get info on cards and manage collections. Features include card sale searching using both eBay and PokemonTCG API, collection management, and user authentication.",
+    stack: ["Typescript", "React", "Node.js", "Express", "Firebase", "CSS", "eBay API", "PokemonTCG API",],
+    url: "https://www.tcgtracker.ca/",
+  },  
+  {
+    id: 1,
     name: "The Lantern Keeper",
     image: lkPic, // Replace with actual project image
     short: "Fantasy-themed Chat bot for Dungeons and Dragons players to generate new characters.",
@@ -17,22 +26,13 @@ export const projects = [
     stack: ["Groq", "NoSQL", "TypeScript", "Vite","Node.js", "Express", "Firebase", "CSS", "LLM",],
     url: "https://lantern-keeper-yqzo.vercel.app/",
   },    {
-    id: 1,
+    id: 2,
     name: "SportSync",
     image: sportPic, // Replace with actual project image
     short: "Web App for Sports enthusiasts to check current games, player stats and news from the big 4 sports leagues",
     details: "My first venture into AWS and my first Solo PostgreSQL project. A full-stack web app for sports enthusiasts to check current NFL/NHL/NBA/MLB games, player stats, news and playoff bracket creation. Features include live game updates, team statistics, news articles, and a leaderboard for user-generated playoff brackets.",
     stack: ["AWS", "PostgreSQL", "React", "TailwindCSS","Node.js", "Express", "Firebase", "CSS", "ESPN API",],
     url: "https://www.sportsync.cc/",
-  },
-  {
-    id: 2,
-    name: "TCGTracker",
-    image: tcgImg, // Replace with actual project image
-    short: "Full-stack Web App for Pokémon TCG collectors to get info on cards and manage collections",
-    details: "A full-stack website for Pokémon TCG collectors to get info on cards and manage collections. Features include card sale searching using both eBay and PokemonTCG API, collection management, and user authentication.",
-    stack: ["Typescript", "React", "Node.js", "Express", "Firebase", "CSS", "eBay API", "PokemonTCG API",],
-    url: "https://www.tcgtracker.ca/",
   },
 {
     id: 3,
