@@ -52,12 +52,12 @@ export default function AboutSection(): JSX.Element {
             <SectionHeading
               eyebrow="About Me"
               title="Small intro, big focus"
-              copy="I’m Mitchell Vieira, a frontend-focused web developer who likes clear UX, strong structure, and projects that feel intentional from the first interaction."
+              copy="My name is Mitchell Vieira, I'm a frontend-focused web developer who builds clear UX, strong structure, and projects that feel intentional from the first interaction."
             />
 
             <div className="story-about-text">
               <p>
-                I’m based just outside the GTA and have spent the last few years building projects, learning new tools, and sharpening the part of the craft that turns ideas into polished interfaces.
+                I’m based just outside the GTA and have spent the last few years building projects, learning new tools, and sharpening the craft of turning ideas into polished interfaces.
               </p>
               <p>
                 My background mixes commerce, customer-facing work, and self-directed development, which shapes how I think about users, clarity, and product flow.
