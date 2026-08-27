@@ -15,20 +15,20 @@ import SectionHeading from '../components/story/SectionHeading'
 
 const showcaseSlides = [
   {
+    image: tcgShowcase,
+    alt: 'TCGTracker collection analytics preview'
+  },
+    {
+    image: solScannerShowcase,
+    alt: 'SolScanner wallet tracker preview'
+  },
+  {
     image: lanternShowcase,
     alt: 'The Lantern Keeper interface preview'
   },
   {
     image: sportsShowcase,
     alt: 'SportSync dashboard preview'
-  },
-  {
-    image: solScannerShowcase,
-    alt: 'SolScanner wallet tracker preview'
-  },
-  {
-    image: tcgShowcase,
-    alt: 'TCGTracker collection analytics preview'
   }
 ] as const
 
