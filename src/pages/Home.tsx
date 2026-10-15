@@ -215,7 +215,7 @@ export default function Home(): JSX.Element {
           <SectionHeading
             eyebrow="Portfolio"
             title="My work so far"
-            copy="A compact archive of some of my work, displaying my skills and the types of projects I enjoy building."
+            copy="A small collection of some of the projects I have built."
           />
           <ProjectGrid limit={6} />
         </div>

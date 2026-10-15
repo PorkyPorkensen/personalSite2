@@ -51,8 +51,8 @@ export default function AboutSection(): JSX.Element {
           <div className="story-about-copy">
             <SectionHeading
               eyebrow="About Me"
-              title="Small intro, big focus"
-              copy="My name is Mitchell Vieira, I'm a frontend-focused web developer who builds clear UX, strong structure, and projects that feel intentional from the first interaction."
+              title="A little about myself"
+              copy="My name is Mitchell Vieira, I'm a web developer building clear UX, strong structure, and projects that feel intentional from the first interaction."
             />
 
             <div className="story-about-text">
@@ -72,7 +72,7 @@ export default function AboutSection(): JSX.Element {
         <SectionHeading
           eyebrow="Tech Stack"
           title="Tools I reach for"
-          copy="A compact snapshot of the stack I use most often."
+          copy="Small summary of the tools and technologies I frequently use."
           align="center"
         />
 
